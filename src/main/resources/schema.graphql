@@ -1,0 +1,31 @@
+type UniteEnseignement {
+code: Int!
+domaine: String!
+responsable: String!
+credits: Int!
+semestre: Int!
+}
+
+enum TypeModule {
+TRANSVERSAL
+PROFESSIONNEL
+RECHERCHE
+}
+
+type Module {
+matricule: String!
+nom: String!
+coefficient: Int!
+volumeHoraire: Int!
+type: TypeModule!
+uniteEnseignement: UniteEnseignement
+}
+
+type Query {
+getallmodules: [Module]
+getallUE:[UniteEnseignement]
+}
+
+schema {
+query: Query
+}
