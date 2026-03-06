@@ -21,9 +21,27 @@ public class Query implements GraphQLRootResolver {
     }
 
     public List<Module> getallmodules(){
-      return   mb.getAllModules();
+        return mb.getAllModules();
     }
-    public List<UniteEnseignement> getallUE(){return ueb.getListeUE();}
+
+    public List<UniteEnseignement> getallUE(){
+        return ueb.getListeUE();
+    }
+    public Module getModuleByMatricule(String matricule) {
+        return mb.getModuleByMatricule(matricule);
+    }
+    public List<Module> getModulesByType(Module.TypeModule type) {
+        return mb.getModulesByType(type);
+    }
+    public List<Module> getModulesByUE(int codeUE) {
+        return mb.getModulesByUE(codeUE);
+    }
+    public List<UniteEnseignement> getUEByDomaine(String domaine) {
+        return ueb.getUEByDomaine(domaine);
+    }
+    public List<UniteEnseignement> getUEBySemestre(int semestre) {
+        return ueb.getUEBySemestre(semestre);
+    }
 
 
 }

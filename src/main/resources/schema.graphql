@@ -23,9 +23,24 @@ uniteEnseignement: UniteEnseignement
 
 type Query {
 getallmodules: [Module]
-getallUE:[UniteEnseignement]
+getallUE: [UniteEnseignement]
+getModuleByMatricule(matricule: String!): Module
+getModulesByType(type: TypeModule!): [Module] 
+getModulesByUE(codeUE: Int!): [Module]
+getUEByDomaine(domaine: String!): [UniteEnseignement]
+getUEBySemestre(semestre: Int!): [UniteEnseignement]
+}
+
+type Mutation {
+addModule(matricule: String!, nom: String!, coefficient: Int!, volumeHoraire: Int!, type: TypeModule!, codeUE: Int!): Boolean
+updateModule(matricule: String!, nom: String!, coefficient: Int!, volumeHoraire: Int!, type: TypeModule!, codeUE: Int!): Boolean
+deleteModule(matricule: String!): Boolean
+addUE(code: Int!, domaine: String!, responsable: String!, credits: Int!, semestre: Int!): Boolean
+updateUE(code: Int!, domaine: String!, responsable: String!, credits: Int!, semestre: Int!): Boolean
+deleteUE(code: Int!): Boolean
 }
 
 schema {
 query: Query
+mutation: Mutation
 }
