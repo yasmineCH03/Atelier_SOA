@@ -15,6 +15,7 @@ public class Mutation implements GraphQLRootResolver {
         this.ueb = ueb;
     }
 
+    //----------------- CRUD Module ---------------------
     public Boolean addModule(String matricule, String nom, int coefficient, int volumeHoraire, Module.TypeModule type, int codeUE) {
         UniteEnseignement ue = new UniteEnseignement();
         ue.setCode(codeUE);
@@ -33,6 +34,7 @@ public class Mutation implements GraphQLRootResolver {
         return mb.deleteModule(matricule);
     }
 
+    //----------------- CRUD UE ---------------------
     public Boolean addUE(int code, String domaine, String responsable, int credits, int semestre) {
         UniteEnseignement ue = new UniteEnseignement(code, domaine, responsable, credits, semestre);
         return ueb.addUniteEnseignement(ue);
